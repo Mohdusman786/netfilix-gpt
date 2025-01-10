@@ -5,6 +5,10 @@ import logo from '../images/IN-en-20241230-TRIFECTA-perspective_5ab944a5-1a71-4f
 const Login = () => {
     const [isSignInForm, setIsSignInForm] = useState(true)
 
+    const hendleButtonSubmit = (e)=>{
+        e.preventdefault()
+    }
+
     const toggleSignInForm = () => {
         setIsSignInForm(!isSignInForm)
     }
@@ -20,10 +24,10 @@ const Login = () => {
                 {!isSignInForm && <input type='number' placeholder='Phone Number' className='p-3 my-2 bg-gray-600 bg-opacity-60 rounded w-full' />}
                 <input type='text' placeholder='Enter Your Email' className='p-3 my-2 bg-gray-600 bg-opacity-60 rounded w-full' />
                 <input type='password' placeholder='Enter Password' className='p-3 my-2 bg-gray-600 bg-opacity-60 rounded w-full' />
-                <button className=' w-full p-2 my-2 bg-red-700 rounded'>{isSignInForm ? "Sign In" : "Sign Up"}</button>
+                <button className=' w-full p-2 my-2 bg-red-700 rounded' onClick={hendleButtonSubmit}>{isSignInForm ? "Sign In" : "Sign Up"}</button>
                 <p className='py-4 cursor-pointer' onClick={toggleSignInForm}>{isSignInForm ? "New to Netflix? Sign up now." : "Allredy Resistor? Sign In now."}</p>
             </form>
-        </div>  
+        </div>
     )
 }
 
